@@ -90,10 +90,19 @@ def build_model():
   train_seq_ANN(model, X_train, y_train, X_valid, y_valid, checkpoint_cb, early_stopping_cb)
 
   # saving another version of the model
-  model.save('multiclass_MLP_v1_alternate')
+  model.save('multiclass_MLP_v1.h5')
 
   # model = keras.models.load_model("my_mnist_model.h5") # rollback to best model
   print(model.evaluate(X_test, y_test))
 
 
-build_model()
+# @brief Grab the current version model from directory
+def get_model():
+
+  X_train,  X_valid, X_test, y_train, y_valid, y_test = create_mnist_train_test()
+  model = keras.models.load_model("multiclass_MLP_v1_alternate") # rollback to best model
+  
+  print(model.evaluate(X_test, y_test))
+
+get_model()
+# build_model()
