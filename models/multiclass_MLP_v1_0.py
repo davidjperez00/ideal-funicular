@@ -8,6 +8,9 @@
 from tensorflow import keras
 import numpy as np
 import tensorflow as tf
+import sys
+sys.path.append("/multiclass_MLP_v1_alternate")
+
 
 
 # Global varibles
@@ -102,7 +105,7 @@ def get_model():
   X_train,  X_valid, X_test, y_train, y_valid, y_test = create_mnist_train_test()
   model = keras.models.load_model("multiclass_MLP_v1_alternate") # rollback to best model
   
+  
   print(model.evaluate(X_test, y_test))
 
-get_model()
-# build_model()
+  return model
