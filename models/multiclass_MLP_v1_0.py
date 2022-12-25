@@ -71,6 +71,7 @@ def train_seq_ANN(model, X_train, y_train, X_valid, y_valid, checkpoint_cb, earl
   return history
 
 # @brief Create an ANN with 98% accuracy on the MNIST datset.
+# @TODO change names of models or error will occur
 def build_model():
   # Get MIST dataset for ANN multi-classifier
   X_train,  X_valid, X_test, y_train, y_valid, y_test = create_mnist_train_test()
