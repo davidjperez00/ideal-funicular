@@ -1,5 +1,9 @@
 # File Name: multiclass_MLP.py
-# Brief: This model trains an MLP neural net on the MNIST dataset
+# Brief: This model trains an MLP neural net on the MNIST dataset.
+#     The pupose of this file was to develop and neural network that interpret
+#     numbers contained within an image. Furthure model in this repository
+#     will create datasets to out to a models main dataset to be able to 
+#     perform arithemetic on a equation containing two numbers and an operator.   
 # Date: 10/17/2022
 # Author: David Perez
 ## Gihub: Create python file for visualizing dataset
@@ -15,7 +19,6 @@ import math
 import matplotlib.pyplot as plt
 import sys
 sys.path.append("/multiclass_MLP_v1_alternate")
-
 
 
 # Global varibles
@@ -105,7 +108,6 @@ def build_model():
 
   # model = keras.models.load_model("my_mnist_model.h5") # rollback to best model
   print(model.evaluate(X_test, y_test))
-
 
 # @brief Grab the current version model from directory
 def get_model():
