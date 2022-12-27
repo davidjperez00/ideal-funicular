@@ -1,16 +1,24 @@
 # File Name: multiclass_MLP.py
-# Brief: This model trains an MLP neural net on the MNIST dataset
+# Brief: This model trains an MLP neural net on the MNIST dataset.
+#     The pupose of this file was to develop and neural network that interpret
+#     numbers contained within an image. Furthure model in this repository
+#     will create datasets to out to a models main dataset to be able to 
+#     perform arithemetic on a equation containing two numbers and an operator.   
 # Date: 10/17/2022
 # Author: David Perez
 ## Gihub: Create python file for visualizing dataset
 ## LINK HERE
 
-from tensorflow import keras
+# from tensorflow import keras
+import cv2
+import os
 import numpy as np
+from tensorflow import keras
 import tensorflow as tf
+import math
+import matplotlib.pyplot as plt
 import sys
 sys.path.append("/multiclass_MLP_v1_alternate")
-
 
 
 # Global varibles
@@ -28,6 +36,8 @@ class ExponentialLearningRate(keras.callbacks.Callback):
         self.losses.append(logs["loss"])
         K.set_value(self.model.optimizer.learning_rate, self.model.optimizer.learning_rate * self.factor)
 
+
+# previous implementation, most recent was V2 on 12/25/2022
 # @brief Generate data subsets for neural net model.
 def create_mnist_train_test():
   # number of images, 28x28 pixels
@@ -71,6 +81,7 @@ def train_seq_ANN(model, X_train, y_train, X_valid, y_valid, checkpoint_cb, earl
   return history
 
 # @brief Create an ANN with 98% accuracy on the MNIST datset.
+# @TODO change names of models or error will occur
 def build_model():
   # Get MIST dataset for ANN multi-classifier
   X_train,  X_valid, X_test, y_train, y_valid, y_test = create_mnist_train_test()
@@ -87,25 +98,25 @@ def build_model():
   print(model)
 
   early_stopping_cb = keras.callbacks.EarlyStopping(patience=20)
-  checkpoint_cb = keras.callbacks.ModelCheckpoint("multiclass_MLP_v1.0.h5", save_best_only=True)
+  checkpoint_cb = keras.callbacks.ModelCheckpoint("multiclass_MLP_v2.0.h5", save_best_only=True)
 
   # Train ideal model
   train_seq_ANN(model, X_train, y_train, X_valid, y_valid, checkpoint_cb, early_stopping_cb)
 
   # saving another version of the model
-  model.save('multiclass_MLP_v1.h5')
+  model.save('multiclass_MLP_v2.h5')
 
   # model = keras.models.load_model("my_mnist_model.h5") # rollback to best model
   print(model.evaluate(X_test, y_test))
 
-
 # @brief Grab the current version model from directory
 def get_model():
-
   X_train,  X_valid, X_test, y_train, y_valid, y_test = create_mnist_train_test()
   model = keras.models.load_model("multiclass_MLP_v1_alternate") # rollback to best model
-  
   
   print(model.evaluate(X_test, y_test))
 
   return model
+
+
+build_model()
