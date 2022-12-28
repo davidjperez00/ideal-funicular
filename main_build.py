@@ -97,7 +97,7 @@ def create_mnist_train_test():
   y_test_new = np.concatenate((y_test, y_add_test))
   del y_add_train, y_add_valid, y_add_test
 
-  # Find shuffling algorithm to rearrange the add images and labels
+  # Shuffle images and labels
   idx = np.random.permutation(len(y_train_new))
   X_train_new_sh, y_train_new_sh = X_train_new[idx], y_train_new[idx]
 
@@ -165,7 +165,6 @@ def build_model():
   # saving another version of the model
   model.save('multiclass_MLP_v2')
 
-  # model = keras.models.load_model("my_mnist_model.h5") # rollback to best model
   print(model.evaluate(X_test, y_test))
 
 
