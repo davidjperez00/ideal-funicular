@@ -33,7 +33,6 @@ class ExponentialLearningRate(keras.callbacks.Callback):
         K.set_value(self.model.optimizer.learning_rate, self.model.optimizer.learning_rate * self.factor)
 
 def load_add_operator_dataset():
-
   images_names = os.listdir("./datasets/full_+_preprocessed/")
   add_images = []
   for img_name in images_names:
