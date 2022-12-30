@@ -1,7 +1,7 @@
 # ideal-funicular
 
 ## ML Handwritten Text Encoder
-This repository reads handwritten equations and converts and solves them digitally. A sample equation that will be interpeted would consists of something like the following: "5 + 3".
+This repository reads handwritten equations and converts and solves them digitally. A sample equation that could be interpeted would consist of something like the following: "5 + 3".
 
 
 ## Repo Set-up
