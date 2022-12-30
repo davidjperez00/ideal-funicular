@@ -1,11 +1,3 @@
-# File Name: multiclass_MLP.py
-# Brief: This model trains an MLP neural net on the MNIST dataset
-# Date: 10/17/2022
-# Author: David Perez
-## Gihub: Create python file for visualizing dataset
-## LINK HERE
-
-# from tensorflow import keras
 import cv2
 import os
 import numpy as np
@@ -14,7 +6,7 @@ import math
 import matplotlib.pyplot as plt
 from tensorflow import keras
 import sys
-sys.path.append("/multiclass_MLP_v1_alternate")
+sys.path.append("/multiclass_MLP_v2")
 
 
 # Global varibles
