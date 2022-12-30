@@ -98,13 +98,13 @@ def build_model():
   print(model)
 
   early_stopping_cb = keras.callbacks.EarlyStopping(patience=20)
-  checkpoint_cb = keras.callbacks.ModelCheckpoint("multiclass_MLP_v2.0.h5", save_best_only=True)
+  checkpoint_cb = keras.callbacks.ModelCheckpoint("multiclass_MLP_v1_0.h5", save_best_only=True)
 
   # Train ideal model
   train_seq_ANN(model, X_train, y_train, X_valid, y_valid, checkpoint_cb, early_stopping_cb)
 
   # saving another version of the model
-  model.save('multiclass_MLP_v2.h5')
+  model.save('multiclass_MLP_v1')
 
   # model = keras.models.load_model("my_mnist_model.h5") # rollback to best model
   print(model.evaluate(X_test, y_test))

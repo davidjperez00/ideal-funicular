@@ -1,11 +1,3 @@
-# File Name: multiclass_MLP.py
-# Brief: This model trains an MLP neural net on the MNIST dataset
-# Date: 10/17/2022
-# Author: David Perez
-## Gihub: Create python file for visualizing dataset
-## LINK HERE
-
-# from tensorflow import keras
 import cv2
 import os
 import numpy as np
@@ -14,7 +6,7 @@ import math
 import matplotlib.pyplot as plt
 from tensorflow import keras
 import sys
-sys.path.append("/multiclass_MLP_v1_alternate")
+sys.path.append("/multiclass_MLP_v2")
 
 
 # Global varibles
@@ -33,7 +25,6 @@ class ExponentialLearningRate(keras.callbacks.Callback):
         K.set_value(self.model.optimizer.learning_rate, self.model.optimizer.learning_rate * self.factor)
 
 def load_add_operator_dataset():
-
   images_names = os.listdir("./datasets/full_+_preprocessed/")
   add_images = []
   for img_name in images_names:
@@ -97,7 +88,7 @@ def create_mnist_train_test():
   y_test_new = np.concatenate((y_test, y_add_test))
   del y_add_train, y_add_valid, y_add_test
 
-  # Find shuffling algorithm to rearrange the add images and labels
+  # Shuffle images and labels
   idx = np.random.permutation(len(y_train_new))
   X_train_new_sh, y_train_new_sh = X_train_new[idx], y_train_new[idx]
 
@@ -165,7 +156,6 @@ def build_model():
   # saving another version of the model
   model.save('multiclass_MLP_v2')
 
-  # model = keras.models.load_model("my_mnist_model.h5") # rollback to best model
   print(model.evaluate(X_test, y_test))
 
 
@@ -178,6 +168,3 @@ def get_model():
   print(model.evaluate(X_test, y_test))
 
   return model
-
-
-build_model()
