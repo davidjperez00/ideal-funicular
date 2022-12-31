@@ -1,3 +1,8 @@
+# File Name: datasets_main.py
+# Brief: Main file for processing kaggle datasets and creating alternate datasets for model
+# Date: 12/31/2022
+# Author: David Perez
+
 import cv2
 import os
 import numpy as np
