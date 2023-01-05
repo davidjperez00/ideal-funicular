@@ -6,10 +6,7 @@
 #     perform arithemetic on a equation containing two numbers and an operator.   
 # Date: 10/17/2022
 # Author: David Perez
-## Gihub: Create python file for visualizing dataset
-## LINK HERE
 
-# from tensorflow import keras
 import cv2
 import os
 import numpy as np
@@ -37,7 +34,6 @@ class ExponentialLearningRate(keras.callbacks.Callback):
         K.set_value(self.model.optimizer.learning_rate, self.model.optimizer.learning_rate * self.factor)
 
 
-# previous implementation, most recent was V2 on 12/25/2022
 # @brief Generate data subsets for neural net model.
 def create_mnist_train_test():
   # number of images, 28x28 pixels
@@ -81,7 +77,6 @@ def train_seq_ANN(model, X_train, y_train, X_valid, y_valid, checkpoint_cb, earl
   return history
 
 # @brief Create an ANN with 98% accuracy on the MNIST datset.
-# @TODO change names of models or error will occur
 def build_model():
   # Get MIST dataset for ANN multi-classifier
   X_train,  X_valid, X_test, y_train, y_valid, y_test = create_mnist_train_test()
