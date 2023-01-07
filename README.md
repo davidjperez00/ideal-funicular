@@ -1,7 +1,7 @@
 # ideal-funicular
 
 ## ML Handwritten Equation Solver
-This repository reads handwritten equations and converts and solves them digitally. The image first has contours ran over the image to extract the images and operators from the original image using a preprocessing pipeline. Then, a sequntial artificial neural network then makes predictions over what operator or digit is contained within each contour. Lastly, an equation is created using the images which is then sovled and produces the outputs to the equation. Note: this current repository only handles the "+" operator as of 12/30/2022. A sample input image and outputs are displayed below: 
+This repository reads handwritten equations and converts and solves them digitally. The image first has contours ran over the image to extract the images and operators from the original image using a preprocessing pipeline. Then, a sequntial artificial neural network then makes predictions over what operator or digit is contained within each contour. Lastly, an equation is created using the images which is then sovled and produces the outputs to the equation. Note: this current repository only handles the "+" operator as of 12/30/2022. A sample input image from <b> [model_analytics/MLP_v2_add_analytics](https://github.com/davidjperez00/ideal-funicular/blob/main/model_analytics/MLP_v2_add_analytics.ipynb) </b> and outputs are displayed below: 
 <br />
 <br />
 
